@@ -35,7 +35,7 @@ function App() {
             style={{ color: 'inherit' }}
             href={'https://www.mohfw.gov.in'}
           >
-            Offical Website
+            Official Website
           </a>
           )
         </span>
