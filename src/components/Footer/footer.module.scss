@@ -1,0 +1,27 @@
+.container {
+  padding: 1rem 0;
+  opacity: 0.75;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.details {
+  padding-top: 0.5rem;
+  font-size: 0.8rem;
+  text-align: center;
+  width: 100%;
+  display: block;
+}
+
+.github {
+  max-width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  svg {
+    transform: scale(1.3);
+  }
+}

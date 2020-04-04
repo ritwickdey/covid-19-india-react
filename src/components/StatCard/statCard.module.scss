@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  background: red;
+  flex: 1;
+  color: #fff;
+  padding: 8px;
+}
+
+.title {
+  text-transform: uppercase;
+}
+
+.statContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.stat {
+  font-size: 3rem;
+  text-align: center;
+}
+
+.inc {
+  position: relative;
+  transform: translateX(10px);
+  font-size: 1.2rem;
+}
+
+.footer {
+  height: 1.2rem;
+}
+
+.percent {
+  width: 100%;
+  text-align: right;
+  display: block;
+}

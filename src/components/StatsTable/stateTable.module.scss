@@ -1,0 +1,51 @@
+.table {
+  width: 100%;
+
+  th {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background: #dcdde1;
+    padding: 1rem 4px;
+  }
+
+  td {
+    border-bottom: 1px solid #eee;
+  }
+
+  td {
+    padding: 0.4rem 4px;
+  }
+
+  .rightAlign {
+    text-align: right;
+  }
+
+  .leftAlign {
+    text-align: left;
+  }
+
+  tr:hover {
+    background: #f4f4f4;
+  }
+}
+
+.diffData {
+  margin-right: 10px;
+
+  font-size: 0.9rem;
+}
+
+.diffDataPositive {
+  color: #c0392b;
+}
+
+.diffDataNegetive {
+  color: #27ae60;
+}
+
+.sorter {
+  display: inline-block;
+  padding: 0 4px;
+  width: 10px;
+}
