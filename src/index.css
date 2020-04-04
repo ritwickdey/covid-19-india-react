@@ -1,9 +1,16 @@
 body {
   margin: 0;
   font-family: 'Source Sans Pro', sans-serif;
+  padding: 0;
+  width: 100vw;
+  overflow-x: hidden;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+* {
+  box-sizing: border-box;
 }

@@ -1,5 +1,6 @@
 .table {
   width: 100%;
+  min-width: 690px;
 
   th {
     position: sticky;
@@ -46,6 +47,6 @@
 
 .sorter {
   display: inline-block;
-  padding: 0 4px;
+  margin: 0 4px;
   width: 10px;
 }

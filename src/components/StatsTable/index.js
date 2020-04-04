@@ -73,66 +73,68 @@ function StatsTable(props) {
   );
 
   return (
-    <table className={classes.table} {...getTableProps()}>
-      <thead>
-        {headerGroups.map((headerGroup, i) => (
-          <tr {...headerGroup.getHeaderGroupProps()}>
-            {headerGroup.headers.map((column, i) => (
-              <th
-                className={i ? classes.rightAlign : classes.leftAlign}
-                {...column.getHeaderProps(column.getSortByToggleProps())}
-              >
-                {!!i && (
-                  <span
-                    className={classes.sorter}
-                    dangerouslySetInnerHTML={{
-                      __html: column.isSorted
-                        ? column.isSortedDesc
-                          ? '&#x2193;'
-                          : '&#x2191;'
-                        : ' ',
-                    }}
-                  />
-                )}
-                {column.render('Header')}
+    <div style={{ overflowX: 'auto' }}>
+      <table className={classes.table} {...getTableProps()}>
+        <thead>
+          {headerGroups.map((headerGroup, i) => (
+            <tr {...headerGroup.getHeaderGroupProps()}>
+              {headerGroup.headers.map((column, i) => (
+                <th
+                  className={i ? classes.rightAlign : classes.leftAlign}
+                  {...column.getHeaderProps(column.getSortByToggleProps())}
+                >
+                  {!!i && (
+                    <span
+                      className={classes.sorter}
+                      dangerouslySetInnerHTML={{
+                        __html: column.isSorted
+                          ? column.isSortedDesc
+                            ? '&#x2193;'
+                            : '&#x2191;'
+                          : ' ',
+                      }}
+                    />
+                  )}
+                  {column.render('Header')}
 
-                {!i && (
-                  <span
-                    className={classes.sorter}
-                    dangerouslySetInnerHTML={{
-                      __html: column.isSorted
-                        ? column.isSortedDesc
-                          ? '&#x2193;'
-                          : '&#x2191;'
-                        : ' ',
-                    }}
-                  />
-                )}
-              </th>
-            ))}
-          </tr>
-        ))}
-      </thead>
-      <tbody {...getTableBodyProps()}>
-        {rows.map((row, i) => {
-          prepareRow(row);
-          return (
-            <tr {...row.getRowProps()}>
-              {row.cells.map((cell, i) => {
-                return (
-                  <td
-                    className={i ? classes.rightAlign : classes.leftAlign}
-                    {...cell.getCellProps()}
-                  >
-                    {cell.render('Cell')}
-                  </td>
-                );
-              })}
+                  {!i && (
+                    <span
+                      className={classes.sorter}
+                      dangerouslySetInnerHTML={{
+                        __html: column.isSorted
+                          ? column.isSortedDesc
+                            ? '&#x2193;'
+                            : '&#x2191;'
+                          : ' ',
+                      }}
+                    />
+                  )}
+                </th>
+              ))}
             </tr>
-          );
-        })}
-      </tbody>
-    </table>
+          ))}
+        </thead>
+        <tbody {...getTableBodyProps()}>
+          {rows.map((row, i) => {
+            prepareRow(row);
+            return (
+              <tr {...row.getRowProps()}>
+                {row.cells.map((cell, i) => {
+                  return (
+                    <td
+                      className={i ? classes.rightAlign : classes.leftAlign}
+                      {...cell.getCellProps()}
+                    >
+                      {cell.render('Cell')}
+                    </td>
+                  );
+                })}
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
   );
 }
 

@@ -1,15 +1,6 @@
 .statCardContaier {
   width: 100%;
-  display: flex;
-  justify-content: space-between;
-  & > * {
-    margin: 0 10px;
-  }
-
-  & > *:first-child {
-    margin-left: 0;
-  }
-  & > *:last-child {
-    margin-right: 0;
-  }
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }

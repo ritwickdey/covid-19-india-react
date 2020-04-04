@@ -28,7 +28,11 @@ const Footer = (props) => {
       </div>
       <code className={classes.details}>
         This website designed & developed by{' '}
-        <a target="_blank" href="https://ritwickdey.github.io">
+        <a
+          style={{ color: 'inherit' }}
+          target="_blank"
+          href="https://ritwickdey.github.io"
+        >
           Ritwick Dey
         </a>
       </code>
