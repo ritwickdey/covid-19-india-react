@@ -26,7 +26,14 @@ const Footer = (props) => {
         </a>
       </div>
       <code className={classes.details}>
-        This is not official website but data is collected from official source
+        This is not official website but data is periodically collected from{' '}
+        <a
+          target="_blank"
+          style={{ color: 'inherit' }}
+          href={'https://www.mohfw.gov.in'}
+        >
+          official source
+        </a>{' '}
         only.
         <br />
         Designed & developed by{' '}

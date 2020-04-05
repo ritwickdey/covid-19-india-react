@@ -1,7 +1,7 @@
 ## COVID-19 India (React.js)
-Redefined Official COVID-19 Stats Website
+Refined Stats From COVID-19 Official Website
 
-`Data is periodontally collected from Official Website`
+`Data is periodically collected from Official Website`
 
 API Server : https://github.com/ritwickdey/covid-19-india-golang
 

@@ -32,11 +32,14 @@ function App() {
   return (
     <div className={classes.container}>
       <div className={classes.headerContainer}>
-        <div className={classes.img}>
-          <img src="favicon.ico" />
-        </div>
-        <h1 className={classes.h1}>
-          COVID-19 INDIA{' '}
+        <div className={classes.h1}>
+          <span className={classes.text}>
+            <span>C</span>
+            <div className={classes.img}>
+              <img src="favicon.ico" />
+            </div>
+            <span>VID-19 INDIA</span>
+          </span>
           <span className={classes.goCorona}>
             (
             <a
@@ -48,18 +51,17 @@ function App() {
             </a>
             😷)
           </span>
-          <span>
-            (Data is periodontally collected from{' '}
-            <a
-              target="_blank"
-              style={{ color: 'inherit' }}
-              href={'https://www.mohfw.gov.in'}
-            >
-              Official Website
-            </a>
-            )
-          </span>
-        </h1>
+        </div>
+        <span className={classes.headerInfo}>
+          Refined stats from COVID-19{' '}
+          <a
+            target="_blank"
+            style={{ color: 'inherit' }}
+            href={'https://www.mohfw.gov.in'}
+          >
+            Official Website
+          </a>{' '}
+        </span>
       </div>
 
       <StatCards statDate={statDate} data={lastetData} />
