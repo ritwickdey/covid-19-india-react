@@ -7,7 +7,27 @@
     top: 0;
     z-index: 2;
     background: #dcdde1;
-    padding: 1rem 4px;
+    padding: 0rem 4px;
+  }
+
+  .thContainer {
+    height: 3.25rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .statDate {
+    font-size: 0.85rem;
+    font-weight: 400;
+    flex: 1 1;
+    height: 100%;
+    text-align: right;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding-bottom: 4px;
+    padding-right: 2px;
+    opacity: 0.75;
   }
 
   td {

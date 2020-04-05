@@ -83,32 +83,40 @@ function StatsTable(props) {
                   className={i ? classes.rightAlign : classes.leftAlign}
                   {...column.getHeaderProps(column.getSortByToggleProps())}
                 >
-                  {!!i && (
-                    <span
-                      className={classes.sorter}
-                      dangerouslySetInnerHTML={{
-                        __html: column.isSorted
-                          ? column.isSortedDesc
-                            ? '&#x2193;'
-                            : '&#x2191;'
-                          : ' ',
-                      }}
-                    />
-                  )}
-                  {column.render('Header')}
+                  <div className={classes.thContainer}>
+                    {!!i && (
+                      <span
+                        className={classes.sorter}
+                        dangerouslySetInnerHTML={{
+                          __html: column.isSorted
+                            ? column.isSortedDesc
+                              ? '&#x2193;'
+                              : '&#x2191;'
+                            : ' ',
+                        }}
+                      />
+                    )}
+                    {column.render('Header')}
 
-                  {!i && (
-                    <span
-                      className={classes.sorter}
-                      dangerouslySetInnerHTML={{
-                        __html: column.isSorted
-                          ? column.isSortedDesc
-                            ? '&#x2193;'
-                            : '&#x2191;'
-                          : ' ',
-                      }}
-                    />
-                  )}
+                    {!i && (
+                      <span
+                        className={classes.sorter}
+                        dangerouslySetInnerHTML={{
+                          __html: column.isSorted
+                            ? column.isSortedDesc
+                              ? '&#x2193;'
+                              : '&#x2191;'
+                            : ' ',
+                        }}
+                      />
+                    )}
+
+                    {!i && (
+                      <span className={classes.statDate}>
+                        {props.statDate}
+                      </span>
+                    )}
+                  </div>
                 </th>
               ))}
             </tr>

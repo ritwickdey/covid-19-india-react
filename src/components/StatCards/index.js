@@ -56,6 +56,7 @@ const StatCards = (props) => {
         title="Confirmed"
         inc={data.confirmedInc}
         stat={data.confirmed}
+        date={props.statDate}
       />
       <StatCard
         bgColor="#2980b9"

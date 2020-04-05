@@ -27,6 +27,11 @@ const StatCard = (props) => {
             {<NumberRace>{formatNumber(props.percent, 2)}</NumberRace>}%
           </span>
         )}
+        {!!props.date && (
+          <span className={classes.date}>
+            {<NumberRace>{props.date}</NumberRace>}
+          </span>
+        )}
       </span>
     </div>
   );
