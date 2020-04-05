@@ -6,14 +6,15 @@
 }
 
 .h1 {
-  font-size: 2rem;
   font-weight: 600;
   margin: 0;
 
   .text {
+    font-size: 2rem;
     display: inline-flex;
     justify-content: center;
     align-items: center;
+    margin-right: 6px;
   }
 }
 
@@ -27,7 +28,7 @@
   display: inline-block;
   font-size: 1.1rem;
   margin-top: 0px;
-  margin-left: 6px;
+
   font-weight: 400;
 }
 
@@ -37,13 +38,23 @@
   flex-direction: column;
 
   .img {
-    width: 2rem;
-    height: 2rem;
+    width: 1.75rem;
+    height: 1.75rem;
     display: inline-block;
+    margin-top: -0.5rem;
+    margin-left: 0.2rem;
+    margin-right: 0.2rem;
   }
 
   img {
     width: 100%;
     height: 100%;
+    animation: spin 4s linear infinite;
+  }
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
   }
 }

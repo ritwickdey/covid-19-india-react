@@ -1,6 +1,6 @@
 import axios from 'axios';
 
 export const authAxios = axios.create({
-  baseURL: 'http://142.93.219.44',
+  baseURL: process.env.REACT_APP_API_ENDPOINT,
   timeout: 120000,
 });
