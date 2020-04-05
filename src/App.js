@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import classes from './app.module.scss';
 import StatCards from './components/StatCards';
 import StatsTable from './components/StatsTable';
@@ -11,7 +11,7 @@ const tenMin = 1000 * 60 * 10;
 function App() {
   const [lastetData, setLatestData] = useState([]);
   const [statDate, setStatDate] = useState();
-  const [isLoading, setIsLoading] = useState(false);
+  // const [isLoading, setIsLoading] = useState(false);
 
   usePolling(
     () => {
@@ -36,7 +36,7 @@ function App() {
           <span className={classes.text}>
             <span>C</span>
             <div className={classes.img}>
-              <img src="favicon.ico" />
+              <img alt="O" src="favicon.ico" />
             </div>
             <span>VID-19 INDIA</span>
           </span>
@@ -45,6 +45,7 @@ function App() {
             <a
               style={{ color: 'inherit' }}
               target="_blank"
+              rel="noopener noreferrer"
               href="https://twitter.com/hashtag/GoCorona"
             >
               #goCorona
@@ -56,6 +57,7 @@ function App() {
           Refined stats from COVID-19{' '}
           <a
             target="_blank"
+            rel="noopener noreferrer"
             style={{ color: 'inherit' }}
             href={'https://www.mohfw.gov.in'}
           >

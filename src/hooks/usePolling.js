@@ -1,7 +1,10 @@
+/* eslint-disable */
+
 import { useEffect, useRef } from 'react';
 
 export const usePolling = (fn, ms = 5000, deps, cleanupFn) => {
   const working = useRef();
+
   useEffect(() => {
     fn();
     const timeout = setInterval(async () => {

@@ -2,12 +2,13 @@ import React from 'react';
 
 import classes from './footer.module.scss';
 
-const Footer = (props) => {
+const Footer = () => {
   return (
     <div className={classes.container}>
       <div className={classes.github}>
         <a
           target="_blank"
+          rel="noopener noreferrer"
           href="https://github.com/ritwickdey/covid-19-india-react"
         >
           <svg
@@ -29,6 +30,7 @@ const Footer = (props) => {
         This is not official website but data is periodically collected from{' '}
         <a
           target="_blank"
+          rel="noopener noreferrer"
           style={{ color: 'inherit' }}
           href={'https://www.mohfw.gov.in'}
         >
@@ -40,6 +42,7 @@ const Footer = (props) => {
         <a
           style={{ color: 'inherit' }}
           target="_blank"
+          rel="noopener noreferrer"
           href="https://ritwickdey.github.io"
         >
           Ritwick Dey
