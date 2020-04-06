@@ -1,0 +1,60 @@
+:root {
+    --font-family: 'Roboto', sans-serif;
+    --body-background-color: #cc1313;
+    --app-bar-background: #ffffff;
+    --app-bar-height: 60px;
+    --body-font-size: 16px;
+    --text-line-height: 24px;
+    --card-background: #ffffff;
+    --card-color: #7d8a94;
+    --heading-font-size: 18px;
+    --heading-color: #2d2d2d;
+    --input-font-size: 13px;
+    --button-font-size: 13px;
+    --side-nav-font-size: 14px;
+    --nested-side-nav-font-size: 13px;
+    --inactive-color: #c1c1c1;
+    --text-main-color-high-contrast-revert: #4fc3f7;
+    --text-primary-color-revert: #fff;
+    --text-primary-color-low-contrast-revert: rgba(255, 255, 255, 0.8);
+    --primary-main-color: #039be5;
+    --primary-light-color: #68bee9;
+    --primary-deep-color: #028bce;
+    --success-color: #2b71e4;
+    --success-default-color: #07ad4a;
+    --success-color-light: #4286f5;
+    --warning-color: #ffdd00;
+    --warning-color-balanced-contrast: #de9e0a;
+    --error-color: #fa3e3e;
+    /* ----contained-button----*/
+    --out-btn-color: #028bce;
+    /* ----outlined-button----*/
+    --button-hover-color: #f1f1f1;
+    --clickable-icon-hover-color: #000000;
+    --snackbar-background-color: #4f4f4f;
+    --snackbar-text-color: #ffffff;
+    --mat-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    --code-snippet-height: 400px;
+    --code-snippet-background-color: var(--body-background-color);
+    --code-snippet-font-size: 13px;
+    --divider-color: #e2e3e4;
+    --divider-border: 1px solid var(--divider-color);
+    --sidebar-hover-color: #dedede;
+    --side-bar-color: #262f3d;
+    --text-color: rgb(27, 58, 87);
+    --text-light-color: #555;
+    --border-light-color: #eee;
+}
+
+*html {
+    font-family: var(--font-family);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--body-background-color) !important;
+    font-family: var(--font-family) !important;
+    font-size: inherit !important;
+    font-weight: 400;
+}

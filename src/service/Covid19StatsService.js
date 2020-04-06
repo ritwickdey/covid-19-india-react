@@ -14,7 +14,7 @@ export const Covid19StatsService = {
       const data = await Covid19StatsService.getStateStatsByDate(todayStr);
       return {
         date: todayStr,
-        stats: data,
+        stats: data
       };
     }
 
@@ -25,20 +25,20 @@ export const Covid19StatsService = {
     const tasks = [];
     tasks.push(
       Covid19StatsService.getStateStatsByDate(todayStr, {
-        returnRawData: true,
+        returnRawData: true
       }),
       Covid19StatsService.getStateStatsByDate(lastDay, { returnRawData: true })
     );
 
     const [todayStats, lastDayStats] = await Promise.all(tasks);
 
-    Object.keys(todayStats).forEach((key) => {
+    Object.keys(todayStats).forEach(key => {
       todayStats[key].lastDayStat = lastDayStats[key];
     });
 
     return {
       date: todayStr,
-      stats: Object.values(todayStats),
+      stats: Object.values(todayStats)
     };
   },
 
@@ -51,4 +51,14 @@ export const Covid19StatsService = {
 
     return Object.values(res.data);
   },
+
+  async getAllStats({ returnRawData = false } = {}) {
+    const res = await authAxios.get('covid19/all');
+    const data = res.data || {};
+    if (returnRawData) {
+      return data;
+    }
+
+    return Object.values(res.data);
+  }
 };
