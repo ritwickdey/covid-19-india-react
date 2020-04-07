@@ -33,7 +33,11 @@ export const Covid19StatsService = {
     const [todayStats, lastDayStats] = await Promise.all(tasks);
 
     Object.keys(todayStats).forEach((key) => {
-      todayStats[key].lastDayStat = lastDayStats[key];
+      todayStats[key].lastDayStat = lastDayStats[key] || {
+        confirmed: 0,
+        recovered: 0,
+        death: 0,
+      };
     });
 
     return {
