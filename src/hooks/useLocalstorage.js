@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { useState, useEffect, useMemo } from 'react';
 
 export const useLocalStorage = (storageKey, initialValue, dataFormater) => {
