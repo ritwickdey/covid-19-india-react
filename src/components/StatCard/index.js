@@ -27,14 +27,10 @@ const StatCard = (props) => {
       <span className={classes.footer}>
         {!!props.percent && (
           <span className={classes.percent}>
-            {<NumberRace>{formatNumber(props.percent, 2)}</NumberRace>}%
+            {formatNumber(props.percent, 2)}%
           </span>
         )}
-        {!!props.date && (
-          <span className={classes.date}>
-            {<NumberRace>{props.date}</NumberRace>}
-          </span>
-        )}
+        {!!props.date && <span className={classes.date}>{props.date}</span>}
       </span>
     </div>
   );
