@@ -52,6 +52,7 @@ const StatCards = (props) => {
   return (
     <div className={classes.statCardContaier}>
       <StatCard
+        isLoading={props.isLoading}
         bgColor="#e74c3c"
         title="Confirmed"
         inc={data.confirmedInc}
@@ -59,6 +60,7 @@ const StatCards = (props) => {
         date={props.statDate}
       />
       <StatCard
+        isLoading={props.isLoading}
         bgColor="#2980b9"
         title="Active"
         inc={data.activeInc}
@@ -66,6 +68,7 @@ const StatCards = (props) => {
         percent={data.confirmed ? (data.active / data.confirmed) * 100 : 0}
       />
       <StatCard
+        isLoading={props.isLoading}
         bgColor="#27ae60"
         title="Recovered"
         inc={data.recoveredInc}
@@ -73,6 +76,7 @@ const StatCards = (props) => {
         percent={data.confirmed ? (data.recovered / data.confirmed) * 100 : 0}
       />
       <StatCard
+        isLoading={props.isLoading}
         bgColor="#2c3e50"
         title="Death"
         percent={data.confirmed ? (data.death / data.confirmed) * 100 : 0}

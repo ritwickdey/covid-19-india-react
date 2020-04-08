@@ -6,7 +6,10 @@ import { formatNumber } from '../../utils';
 const StatCard = (props) => {
   return (
     <div style={{ background: props.bgColor }} className={classes.container}>
-      <span className={classes.title}>{props.title}</span>
+      <span className={classes.title}>
+        {props.title}
+        {props.isLoading && <span className={classes.loader}></span>}
+      </span>
       <div className={classes.statContainer}>
         <span className={classes.stat}>
           <NumberRace>{props.stat}</NumberRace>

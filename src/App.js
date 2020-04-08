@@ -5,16 +5,18 @@ import StatsTable from './components/StatsTable';
 import { Covid19StatsService } from './service/Covid19StatsService';
 import { usePolling } from './hooks/usePolling';
 import Footer from './components/Footer';
+import { useLocalStorage } from './hooks/useLocalstorage';
 
 const tenMin = 1000 * 60 * 10;
 
 function App() {
-  const [lastetData, setLatestData] = useState([]);
-  const [statDate, setStatDate] = useState();
-  // const [isLoading, setIsLoading] = useState(false);
+  const [lastetData, setLatestData] = useLocalStorage('__last_data__', []);
+  const [statDate, setStatDate] = useLocalStorage('__date__');
+  const [isLoading, setIsLoading] = useState(false);
 
   usePolling(
     () => {
+      setIsLoading(true);
       Covid19StatsService.getLatestStateStats({ withLastDay: true })
         .then((data) => {
           setStatDate(data.date);
@@ -23,6 +25,9 @@ function App() {
         .catch((err) => {
           console.error(err);
           console.log('Something went wrong');
+        })
+        .finally(() => {
+          setIsLoading(false);
         });
     },
     tenMin,
@@ -66,7 +71,7 @@ function App() {
         </span>
       </div>
 
-      <StatCards statDate={statDate} data={lastetData} />
+      <StatCards isLoading={isLoading} statDate={statDate} data={lastetData} />
       <div>
         <h4 style={{ marginBottom: '0.2rem', fontSize: '1.15rem' }}>
           State wise breakdown
