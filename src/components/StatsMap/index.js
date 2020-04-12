@@ -72,7 +72,7 @@ const StatsMap = React.memo((props) => {
     }
 
     return props.data;
-  }, [mapDensityKey]);
+  }, [mapDensityKey, props.data]);
 
   return (
     <div className={classes.container}>
