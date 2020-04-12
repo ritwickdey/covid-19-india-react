@@ -112,7 +112,13 @@ function App() {
 
         <div className={classes.extraSelection}>
           {!isTableView && (
-            <div>
+            <div
+              style={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                alignItems: 'center',
+              }}
+            >
               <span>Density : </span>
               {mapDensityKeys.map((key) => {
                 return (

@@ -95,11 +95,19 @@
   margin: 10px 0;
   span {
     display: inline-block;
-    margin: 0 5px;
+    margin-right: 6px;
   }
 
   .selection {
+    display: inline-flex;
+    align-items: center;
     cursor: pointer;
     user-select: none;
+    justify-content: center;
+
+    input {
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+    }
   }
 }
