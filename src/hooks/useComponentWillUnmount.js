@@ -3,8 +3,8 @@ export function useComponentWillUnmount(fn) {
   useEffect(
     () => () => {
       fn();
-      //eslint-disable-next-line
     },
+    //eslint-disable-next-line
     []
   );
 }
