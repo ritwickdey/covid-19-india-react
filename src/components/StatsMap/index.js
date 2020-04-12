@@ -30,6 +30,8 @@ const initalTooltipState = {
   selectedId: '',
 };
 
+const TOOLTIP_WIDTH = 200;
+const TOOLTIP_HEIGHT = 200;
 const StatsMap = React.memo((props) => {
   const { autoScale, mapDensityKey } = props;
 
@@ -47,10 +49,21 @@ const StatsMap = React.memo((props) => {
       event.target.getScreenCTM()
     );
 
+    let _x = x - window.scrollX;
+    let _y = y - window.scrollY;
+
+    if (event.pageX + TOOLTIP_WIDTH + 10 > window.innerWidth) {
+      _x = _x - (_x + TOOLTIP_WIDTH - window.innerWidth);
+    }
+
+    // if (event.pageY + TOOLTIP_HEIGHT + 10 < window.document.body.clientHeight-window.scrollY) {
+    //   _y = _y - TOOLTIP_HEIGHT;
+    // }
+
     const tooltip = {
       show: true,
-      x: x - window.scrollX,
-      y: y - window.scrollY,
+      x: _x,
+      y: _y,
       title: stateName,
       data: data || generateDefaultData(stateName),
       selectedId: stateName,
@@ -102,7 +115,7 @@ const StatsMap = React.memo((props) => {
               top: tooltip.y,
             }}
           >
-            <Tooltip data={tooltip.data} />
+            <TooltipContent data={tooltip.data} />
           </div>
           <IndiaMap
             valueKey={mapDensityKey}
@@ -231,7 +244,7 @@ const IndiaMap = React.memo(function IndiaMap(props) {
   );
 });
 
-const Tooltip = (props) => {
+const TooltipContent = (props) => {
   if (!props.data) {
     return null;
   }

@@ -104,9 +104,9 @@ function App() {
               id="tableView"
               checked={isTableView}
               value={isTableView}
-              onClick={() => setIsTableView((v) => !v)}
+              onChange={() => setIsTableView((v) => !v)}
             />
-            <label for="tableView"> Table View</label>
+            <label htmlFor="tableView"> Table View</label>
           </div>
         </div>
 
@@ -131,7 +131,7 @@ function App() {
                       value={key.key}
                       onChange={(e) => setMapDensityKey(e.target.value)}
                     />
-                    <label for={key.key}>{key.title}</label>
+                    <label htmlFor={key.key}>{key.title}</label>
                   </span>
                 );
               })}
