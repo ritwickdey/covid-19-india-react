@@ -26,7 +26,7 @@ export function useRefWidthHeight() {
             if (rect.width != width) {
               setWidth(rect.width);
             }
-          }, 200);
+          }, 100);
         }
       }
       setTimeout(() => {
