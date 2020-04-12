@@ -12,7 +12,7 @@ const StatCard = (props) => {
       </span>
       <div className={classes.statContainer}>
         <span className={classes.stat}>
-          <NumberRace>{props.stat}</NumberRace>
+          <NumberRace format={formatNumber}>{props.stat}</NumberRace>
         </span>
 
         <span
@@ -20,7 +20,7 @@ const StatCard = (props) => {
           className={classes.inc}
         >
           {props.inc > 0 && '+'}
-          {<NumberRace>{props.inc}</NumberRace>}
+          {<NumberRace format={formatNumber}>{props.inc}</NumberRace>}
         </span>
       </div>
 

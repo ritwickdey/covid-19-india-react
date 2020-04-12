@@ -58,3 +58,34 @@
     transform: rotate(360deg);
   }
 }
+
+.statsMapContainer {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.contentHeader {
+  display: flex;
+  // justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 0.6rem;
+  margin-top: 1.2rem;
+
+  h4 {
+    padding-right: 1rem;
+    margin: 0;
+    font-size: 1.15rem;
+  }
+
+  .selection {
+    display: flex;
+    align-items: center;
+    * {
+      cursor: pointer !important;
+      user-select: none;
+    }
+  }
+}

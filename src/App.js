@@ -6,6 +6,7 @@ import { Covid19StatsService } from './service/Covid19StatsService';
 import { usePolling } from './hooks/usePolling';
 import Footer from './components/Footer';
 import { useLocalStorage } from './hooks/useLocalstorage';
+import StatsMap from './components/StatsMap';
 
 const tenMin = 1000 * 60 * 10;
 
@@ -13,6 +14,7 @@ function App() {
   const [lastetData, setLatestData] = useLocalStorage('__last_data__', []);
   const [statDate, setStatDate] = useLocalStorage('__date__');
   const [isLoading, setIsLoading] = useState(false);
+  const [isMapView, setIsMapView] = useState(true);
 
   usePolling(
     () => {
@@ -73,10 +75,35 @@ function App() {
 
       <StatCards isLoading={isLoading} statDate={statDate} data={lastetData} />
       <div>
-        <h4 style={{ marginBottom: '0.2rem', fontSize: '1.15rem' }}>
-          State wise breakdown
-        </h4>
-        <StatsTable statDate={statDate} data={lastetData} />
+        <div className={classes.contentHeader}>
+          <h4>State wise breakdown</h4>
+          <div className={classes.selection}>
+            <input
+              type="checkbox"
+              name="mapView"
+              id="mapView"
+              checked={isMapView}
+              value={isMapView}
+              onClick={() => setIsMapView((v) => !v)}
+            />
+            <label for="mapView"> Map View</label>
+          </div>
+        </div>
+
+        <div style={{ minHeight: 300 }}>
+          {!isMapView && <StatsTable statDate={statDate} data={lastetData} />}
+          {isMapView && (
+            <div className={classes.statsMapContainer}>
+              <StatsMap
+                autoScale
+                width="480"
+                height="450"
+                statDate={statDate}
+                data={lastetData}
+              />
+            </div>
+          )}
+        </div>
       </div>
       <Footer />
     </div>
