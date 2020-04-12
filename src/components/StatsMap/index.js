@@ -52,7 +52,7 @@ const StatsMap = React.memo((props) => {
       x: x - window.scrollX,
       y: y - window.scrollY,
       title: stateName,
-      data,
+      data: data || generateDefaultData(stateName),
       selectedId: stateName,
     };
     setTooltip(tooltip);
@@ -195,7 +195,7 @@ const IndiaMap = React.memo(function IndiaMap(props) {
       return 'rgba(38,50,56,1)';
     }
 
-    if (d) {
+    if (d && d[valueKey]) {
       return color(d[valueKey]);
     }
     return 'rgba(255,255,255,0.25)';
@@ -346,5 +346,19 @@ function calculateSVGXY(clientX, clientY, CTM) {
   return {
     x: (clientX - CTM.e) / CTM.a,
     y: (clientY - CTM.f) / CTM.d,
+  };
+}
+
+function generateDefaultData(stateName) {
+  return {
+    confirmed: 0,
+    death: 0,
+    recovered: 0,
+    stateName: stateName,
+    lastDayStat: {
+      confirmed: 0,
+      death: 0,
+      recovered: 0,
+    },
   };
 }
