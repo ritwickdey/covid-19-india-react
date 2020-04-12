@@ -6,8 +6,8 @@ import React, {
   useRef,
 } from 'react';
 import { geoMercator, geoPath } from 'd3-geo';
-import { interpolateReds } from 'd3-scale-chromatic';
-import { scaleSequential } from 'd3-scale';
+import { scaleLinear } from 'd3-scale';
+import { interpolateRgb } from 'd3-interpolate';
 import { max } from 'd3-array';
 import classes from './statsMap.module.scss';
 import { useRefWidthHeight } from '../../hooks/useRefWidthHeight';
@@ -122,6 +122,13 @@ const StatsMap = React.memo((props) => {
 
 export default StatsMap;
 
+const colorRange = {
+  confirmed: ['rgba(231, 76, 60, 0.1)', `rgba(231, 76, 60, 1)`],
+  active: ['rgba(41, 128, 185, 0.1)', `rgba(41, 128, 185, 1)`],
+  recovered: ['rgba(39, 174, 96, 0.1)', `rgba(39, 174, 96, 1)`],
+  death: ['rgba(44, 62, 80, 0.1)', `rgba(44, 62, 80, 1)`],
+};
+
 const IndiaMap = React.memo(function IndiaMap(props) {
   const {
     width,
@@ -151,7 +158,9 @@ const IndiaMap = React.memo(function IndiaMap(props) {
   }, []);
 
   const color = useMemo(() => {
-    const color = scaleSequential(interpolateReds);
+    const color = scaleLinear()
+      .range(colorRange[valueKey])
+      .interpolate(interpolateRgb);
 
     if (!data) {
       return color;
