@@ -31,7 +31,7 @@ const initalTooltipState = {
 };
 
 const TOOLTIP_WIDTH = 200;
-const TOOLTIP_HEIGHT = 200;
+// const TOOLTIP_HEIGHT = 200;
 const StatsMap = React.memo((props) => {
   const { autoScale, mapDensityKey } = props;
 
