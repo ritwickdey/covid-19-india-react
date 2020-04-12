@@ -14,7 +14,7 @@ function App() {
   const [lastetData, setLatestData] = useLocalStorage('__last_data__', []);
   const [statDate, setStatDate] = useLocalStorage('__date__');
   const [isLoading, setIsLoading] = useState(false);
-  const [isTableView, setIsTableView] = useState(true);
+  const [isTableView, setIsTableView] = useState(false);
 
   usePolling(
     () => {
