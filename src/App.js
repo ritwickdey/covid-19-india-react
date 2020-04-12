@@ -14,7 +14,7 @@ function App() {
   const [lastetData, setLatestData] = useLocalStorage('__last_data__', []);
   const [statDate, setStatDate] = useLocalStorage('__date__');
   const [isLoading, setIsLoading] = useState(false);
-  const [isMapView, setIsMapView] = useState(true);
+  const [isTableView, setIsTableView] = useState(true);
 
   usePolling(
     () => {
@@ -80,19 +80,19 @@ function App() {
           <div className={classes.selection}>
             <input
               type="checkbox"
-              name="mapView"
-              id="mapView"
-              checked={isMapView}
-              value={isMapView}
-              onClick={() => setIsMapView((v) => !v)}
+              name="tableView"
+              id="tableView"
+              checked={isTableView}
+              value={isTableView}
+              onClick={() => setIsTableView((v) => !v)}
             />
-            <label for="mapView"> Map View</label>
+            <label for="tableView"> Table View</label>
           </div>
         </div>
 
         <div style={{ minHeight: 300 }}>
-          {!isMapView && <StatsTable statDate={statDate} data={lastetData} />}
-          {isMapView && (
+          {isTableView && <StatsTable statDate={statDate} data={lastetData} />}
+          {!isTableView && (
             <div className={classes.statsMapContainer}>
               <StatsMap
                 autoScale

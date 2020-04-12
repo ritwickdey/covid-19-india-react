@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { useRef } from 'react';
 import { useState, useCallback } from 'react';
 import { useComponentWillUnmount } from './useComponentWillUnmount';

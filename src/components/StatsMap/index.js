@@ -8,7 +8,7 @@ import React, {
 import { geoMercator, geoPath } from 'd3-geo';
 import { interpolateReds } from 'd3-scale-chromatic';
 import { scaleSequential } from 'd3-scale';
-import { min, max } from 'd3-array';
+import { max } from 'd3-array';
 import classes from './statsMap.module.scss';
 import { useRefWidthHeight } from '../../hooks/useRefWidthHeight';
 import {
@@ -136,6 +136,7 @@ const IndiaMap = React.memo(function IndiaMap(props) {
         setIndiaGeoJson(indiaGeoJson);
         GEO_INDIA_JSON_CACHE = indiaGeoJson;
       });
+    //eslint-disable-next-line
   }, []);
 
   const color = useMemo(() => {
