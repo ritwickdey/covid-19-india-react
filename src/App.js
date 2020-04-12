@@ -10,11 +10,31 @@ import StatsMap from './components/StatsMap';
 
 const tenMin = 1000 * 60 * 10;
 
+const mapDensityKeys = [
+  {
+    key: 'confirmed',
+    title: 'Confirmed',
+  },
+  {
+    key: 'active',
+    title: 'Active',
+  },
+  {
+    key: 'recovered',
+    title: 'Recovered',
+  },
+  {
+    key: 'death',
+    title: 'Death',
+  },
+];
+
 function App() {
   const [lastetData, setLatestData] = useLocalStorage('__last_data__', []);
   const [statDate, setStatDate] = useLocalStorage('__date__');
   const [isLoading, setIsLoading] = useState(false);
   const [isTableView, setIsTableView] = useState(false);
+  const [mapDensityKey, setMapDensityKey] = useState(mapDensityKeys[0].key);
 
   usePolling(
     () => {
@@ -90,6 +110,29 @@ function App() {
           </div>
         </div>
 
+        <div className={classes.extraSelection}>
+          {!isTableView && (
+            <div>
+              <span>Density : </span>
+              {mapDensityKeys.map((key) => {
+                return (
+                  <span className={classes.selection} key={key.key}>
+                    <input
+                      checked={key.key === mapDensityKey}
+                      type="radio"
+                      id={key.key}
+                      name="mapDensityKey"
+                      value={key.key}
+                      onChange={(e) => setMapDensityKey(e.target.value)}
+                    />
+                    <label for={key.key}>{key.title}</label>
+                  </span>
+                );
+              })}
+            </div>
+          )}
+        </div>
+
         <div style={{ minHeight: 300 }}>
           {isTableView && <StatsTable statDate={statDate} data={lastetData} />}
           {!isTableView && (
@@ -100,6 +143,7 @@ function App() {
                 height="450"
                 statDate={statDate}
                 data={lastetData}
+                mapDensityKey={mapDensityKey}
               />
             </div>
           )}

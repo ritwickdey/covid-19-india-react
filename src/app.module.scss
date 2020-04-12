@@ -89,3 +89,17 @@
     }
   }
 }
+
+.extraSelection {
+  display: flex;
+  margin: 10px 0;
+  span {
+    display: inline-block;
+    margin: 0 5px;
+  }
+
+  .selection {
+    cursor: pointer;
+    user-select: none;
+  }
+}

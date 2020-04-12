@@ -31,7 +31,7 @@ const initalTooltipState = {
 };
 
 const StatsMap = React.memo((props) => {
-  const { data, autoScale } = props;
+  const { autoScale, mapDensityKey } = props;
 
   const [{ width: _autoWidth }, refUpdater] = useRefWidthHeight();
   const [tooltip, setTooltip] = useState(initalTooltipState);
@@ -64,6 +64,16 @@ const StatsMap = React.memo((props) => {
     });
   }, []);
 
+  const data = useMemo(() => {
+    if (props.data && mapDensityKey === 'active') {
+      props.data.forEach((d) => {
+        d.active = calculateActiveCase(d);
+      });
+    }
+
+    return props.data;
+  }, [mapDensityKey]);
+
   return (
     <div className={classes.container}>
       <div
@@ -95,6 +105,7 @@ const StatsMap = React.memo((props) => {
             <Tooltip data={tooltip.data} />
           </div>
           <IndiaMap
+            valueKey={mapDensityKey}
             svgRef={countryMapRef}
             selectedId={tooltip.selectedId}
             handleMouseOver={handleMouseOver}
@@ -111,7 +122,6 @@ const StatsMap = React.memo((props) => {
 
 export default StatsMap;
 
-const valueKey = 'confirmed';
 const IndiaMap = React.memo(function IndiaMap(props) {
   const {
     width,
@@ -120,6 +130,7 @@ const IndiaMap = React.memo(function IndiaMap(props) {
     handleMouseOver,
     handleMouseOut,
     selectedId,
+    valueKey = 'confirmed',
   } = props;
 
   const [indiaGeoJson, setIndiaGeoJson] = useLocalStorage('india-geo', null);
@@ -146,13 +157,10 @@ const IndiaMap = React.memo(function IndiaMap(props) {
       return color;
     }
 
-    console.log(0);
-    console.log(max(data, (d) => d[valueKey]));
-
     color.domain([0, max(data, (d) => d[valueKey])]);
 
     return color;
-  }, [data]);
+  }, [data, valueKey]);
 
   const dataMap = useMemo(() => {
     const dataMap = {};
