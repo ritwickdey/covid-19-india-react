@@ -7,34 +7,16 @@ import { usePolling } from './hooks/usePolling';
 import Footer from './components/Footer';
 import { useLocalStorage } from './hooks/useLocalstorage';
 import StatsMap from './components/StatsMap';
+import { densityKeysSchema } from './utils/helper';
 
 const tenMin = 1000 * 60 * 10;
-
-const mapDensityKeys = [
-  {
-    key: 'confirmed',
-    title: 'Confirmed',
-  },
-  {
-    key: 'active',
-    title: 'Active',
-  },
-  {
-    key: 'recovered',
-    title: 'Recovered',
-  },
-  {
-    key: 'death',
-    title: 'Death',
-  },
-];
 
 function App() {
   const [lastetData, setLatestData] = useLocalStorage('__last_data__', []);
   const [statDate, setStatDate] = useLocalStorage('__date__');
   const [isLoading, setIsLoading] = useState(false);
   const [isTableView, setIsTableView] = useState(false);
-  const [mapDensityKey, setMapDensityKey] = useState(mapDensityKeys[0].key);
+  const [mapDensityKey, setMapDensityKey] = useState(densityKeysSchema[0].key);
 
   usePolling(
     () => {
@@ -120,7 +102,7 @@ function App() {
               }}
             >
               <span>Density : </span>
-              {mapDensityKeys.map((key) => {
+              {densityKeysSchema.map((key) => {
                 return (
                   <span className={classes.selection} key={key.key}>
                     <input

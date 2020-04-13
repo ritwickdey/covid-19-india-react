@@ -15,8 +15,10 @@ import {
   formatNumber,
   calculateActiveCase,
   calculateMortalityRate,
+  calculateRecoveryRate,
 } from '../../utils';
 import { useLocalStorage } from '../../hooks/useLocalstorage';
+import { densityKeysSchema } from '../../utils/helper';
 
 let GEO_INDIA_JSON_CACHE;
 let GEO_INDIA_JSON_PATH = '/india.json';
@@ -78,10 +80,15 @@ const StatsMap = React.memo((props) => {
   }, []);
 
   const data = useMemo(() => {
-    if (props.data && mapDensityKey === 'active') {
-      props.data.forEach((d) => {
-        d.active = calculateActiveCase(d);
-      });
+    if (props.data) {
+      const densityKeySchema = densityKeysSchema.find(
+        (e) => e.key === mapDensityKey
+      );
+      if (densityKeySchema?.dataModifier) {
+        props.data.forEach((d) => {
+          densityKeySchema.dataModifier(d);
+        });
+      }
     }
 
     return props.data;
@@ -140,6 +147,8 @@ const colorRange = {
   active: ['rgba(41, 128, 185, 0.1)', `rgba(41, 128, 185, 1)`],
   recovered: ['rgba(39, 174, 96, 0.1)', `rgba(39, 174, 96, 1)`],
   death: ['rgba(44, 62, 80, 0.1)', `rgba(44, 62, 80, 1)`],
+  recoveryRate: ['rgba(39, 174, 96, 0.1)', `rgba(39, 174, 96, 1)`],
+  mortalityRate: ['rgba(44, 62, 80, 0.1)', `rgba(44, 62, 80, 1)`],
 };
 
 const IndiaMap = React.memo(function IndiaMap(props) {
@@ -346,8 +355,12 @@ const TooltipContent = (props) => {
       </div>
       <div className={classes.footer}>
         <span>
-          Mortality Rate is{' '}
-          {formatNumber(calculateMortalityRate(props.data) ?? 0, 2)}%
+          Mortality Rate :{' '}
+          {formatNumber(calculateMortalityRate(props.data) || 0, 2)}%
+        </span>
+        <span>
+          Recovery Rate :{' '}
+          {formatNumber(calculateRecoveryRate(props.data) || 0, 2)}%
         </span>
       </div>
     </div>

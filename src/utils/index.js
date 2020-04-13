@@ -6,6 +6,10 @@ export function calculateMortalityRate(stat) {
   return (stat.death / stat.confirmed) * 100;
 }
 
+export function calculateRecoveryRate(stat) {
+  return (stat.recovered / stat.confirmed) * 100;
+}
+
 export function formatNumber(num, toFixed = 0) {
   return Number(num).toLocaleString('en', {
     minimumFractionDigits: toFixed,
