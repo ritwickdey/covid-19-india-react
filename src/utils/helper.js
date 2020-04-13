@@ -29,7 +29,7 @@ export const densityKeysSchema = [
   },
   {
     key: 'mortalityRate',
-    title: 'Mortality Rate',
+    title: 'Death Rate',
     dataModifier: (data) => (data.mortalityRate = calculateMortalityRate(data)),
   },
 ];

@@ -36,7 +36,6 @@ const TOOLTIP_WIDTH = 200;
 // const TOOLTIP_HEIGHT = 200;
 const StatsMap = React.memo((props) => {
   const { autoScale, mapDensityKey } = props;
-
   const [{ width: _autoWidth }, refUpdater] = useRefWidthHeight();
   const [tooltip, setTooltip] = useState(initalTooltipState);
   const countryMapRef = useRef();
@@ -355,7 +354,7 @@ const TooltipContent = (props) => {
       </div>
       <div className={classes.footer}>
         <span>
-          Mortality Rate :{' '}
+          Death Rate :{' '}
           {formatNumber(calculateMortalityRate(props.data) || 0, 2)}%
         </span>
         <span>

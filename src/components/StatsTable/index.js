@@ -42,7 +42,7 @@ const columns = [
     Cell: (props) => <TableDiffCell {...props} formator={formatNumber} />,
   },
   {
-    Header: 'Mortality Rate',
+    Header: 'Death Rate',
     id: 'mortalityRate',
     sortType: 'basic',
     accessor: calculateMortalityRate,
