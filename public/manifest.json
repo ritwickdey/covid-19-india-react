@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "COVID-19 India Stats",
+  "name": "COVID-19 India Stats | Refined Stats From COVID-19 Official Website. Data is periodically collected from Official Website",
   "icons": [
     {
       "src": "favicon.ico",

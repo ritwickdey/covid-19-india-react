@@ -15,7 +15,7 @@ import {
   formatNumber,
   calculateActiveCase,
   calculateMortalityRate,
-  calculateRecoveryRate,
+  calculateRecoveredRate,
 } from '../../utils';
 import { useLocalStorage } from '../../hooks/useLocalstorage';
 import { densityKeysSchema } from '../../utils/helper';
@@ -146,7 +146,7 @@ const colorRange = {
   active: ['rgba(41, 128, 185, 0.1)', `rgba(41, 128, 185, 1)`],
   recovered: ['rgba(39, 174, 96, 0.1)', `rgba(39, 174, 96, 1)`],
   death: ['rgba(44, 62, 80, 0.1)', `rgba(44, 62, 80, 1)`],
-  recoveryRate: ['rgba(39, 174, 96, 0.1)', `rgba(39, 174, 96, 1)`],
+  recoveredRate: ['rgba(39, 174, 96, 0.1)', `rgba(39, 174, 96, 1)`],
   mortalityRate: ['rgba(44, 62, 80, 0.1)', `rgba(44, 62, 80, 1)`],
 };
 
@@ -358,8 +358,8 @@ const TooltipContent = (props) => {
           {formatNumber(calculateMortalityRate(props.data) || 0, 2)}%
         </span>
         <span>
-          Recovery Rate :{' '}
-          {formatNumber(calculateRecoveryRate(props.data) || 0, 2)}%
+          Recovered Rate :{' '}
+          {formatNumber(calculateRecoveredRate(props.data) || 0, 2)}%
         </span>
       </div>
     </div>

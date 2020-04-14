@@ -4,7 +4,7 @@ import {
   calculateActiveCase,
   formatNumber,
   calculateMortalityRate,
-  calculateRecoveryRate,
+  calculateRecoveredRate,
 } from '../../utils';
 
 import classes from './stateTable.module.scss';
@@ -49,10 +49,10 @@ const columns = [
     Cell: (props) => formatNumber(props.value, 2) + '%',
   },
   {
-    Header: 'Recovery Rate',
-    id: 'recoveryRate',
+    Header: 'Recovered Rate',
+    id: 'recoveredRate',
     sortType: 'basic',
-    accessor: calculateRecoveryRate,
+    accessor: calculateRecoveredRate,
     Cell: (props) => formatNumber(props.value, 2) + '%',
   },
 ];

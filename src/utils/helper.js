@@ -1,6 +1,6 @@
 import {
   calculateActiveCase,
-  calculateRecoveryRate,
+  calculateRecoveredRate,
   calculateMortalityRate,
 } from '.';
 
@@ -23,9 +23,9 @@ export const densityKeysSchema = [
     title: 'Death',
   },
   {
-    key: 'recoveryRate',
-    title: 'Recovery Rate',
-    dataModifier: (data) => (data.recoveryRate = calculateRecoveryRate(data)),
+    key: 'recoveredRate',
+    title: 'Recovered Rate',
+    dataModifier: (data) => (data.recoveredRate = calculateRecoveredRate(data)),
   },
   {
     key: 'mortalityRate',

@@ -6,7 +6,7 @@ export function calculateMortalityRate(stat) {
   return (stat.death / stat.confirmed) * 100;
 }
 
-export function calculateRecoveryRate(stat) {
+export function calculateRecoveredRate(stat) {
   return (stat.recovered / stat.confirmed) * 100;
 }
 
