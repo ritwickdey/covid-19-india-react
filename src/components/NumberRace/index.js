@@ -1,10 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 function NumberRace(props) {
   const [value, setValue] = useState(props.children);
 
   useEffect(() => {
-    if (value === props.children) return;
+    if (value === props.children) {
+      return;
+    }
     if (isNaN(props.children)) {
       return setValue(props.children);
     }
@@ -17,10 +19,15 @@ function NumberRace(props) {
       change = Math.ceil(change);
     }
 
-    const nearlyLastHop = change * 5 + value >= props.children;
+    const nearlyLastHop =
+      Math.abs(change * 5 + value) >= Math.abs(props.children);
 
     const t = setTimeout(
       () => {
+        if (change === 0 && !isFloatType) {
+          setValue(props.children);
+          return;
+        }
         setValue(change + value);
       },
       nearlyLastHop ? 100 : 30
